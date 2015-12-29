@@ -1,0 +1,17 @@
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\ET.Login.exe.config
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\App.g.cs
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login_MarkupCompile.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login_MarkupCompile.lref
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\ET.Login.exe
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\ET.Login.pdb
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\MahApps.Metro.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\MahApps.Metro.xml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Main.g.cs
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\App.baml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Main.baml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login.g.resources
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login.Properties.Resources.resources
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login.csproj.GenerateResource.Cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login.exe
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\ET.Login.pdb

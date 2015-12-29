@@ -1,0 +1,6 @@
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Login.g.cs
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Login_MarkupCompile.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\Login_MarkupCompile.lref
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\obj\Debug\App.g.cs
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Login\bin\Debug\Login.exe.config

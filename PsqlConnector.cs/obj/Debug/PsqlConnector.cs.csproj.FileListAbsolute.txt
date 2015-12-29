@@ -1,0 +1,7 @@
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\bin\Debug\PsqlConnector.cs.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\bin\Debug\PsqlConnector.cs.pdb
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\bin\Debug\Npgsql.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\bin\Debug\Npgsql.xml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\obj\Debug\PsqlConnector.cs.csprojResolveAssemblyReference.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\obj\Debug\PsqlConnector.cs.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\PsqlConnector.cs\obj\Debug\PsqlConnector.cs.pdb

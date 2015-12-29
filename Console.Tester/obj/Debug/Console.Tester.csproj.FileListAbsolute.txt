@@ -1,0 +1,10 @@
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\obj\Debug\Console.Tester.csprojResolveAssemblyReference.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\Console.Tester.exe.config
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\Console.Tester.exe
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\Console.Tester.pdb
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\PsqlConnector.cs.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\Npgsql.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\PsqlConnector.cs.pdb
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\bin\Debug\Npgsql.xml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\obj\Debug\Console.Tester.exe
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Console.Tester\obj\Debug\Console.Tester.pdb
