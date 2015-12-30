@@ -35,9 +35,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PsqlConnector">
-      <HintPath>..\PsqlConnector.cs\bin\Debug\PsqlConnector.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,8 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FastQueries\FastQueries.csproj">
-      <Project>{2AC056F9-D7F9-4397-A081-3881A42F277A}</Project>
+      <Project>{2ac056f9-d7f9-4397-a081-3881a42f277a}</Project>
       <Name>FastQueries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PsqlConnector.cs\PsqlConnector.csproj">
+      <Project>{2c51584b-139d-405f-aad4-dcb9a2fde92e}</Project>
+      <Name>PsqlConnector</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

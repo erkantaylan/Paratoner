@@ -1,9 +1,9 @@
-C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\obj\Debug\FastQueries.csprojResolveAssemblyReference.cache
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\FastQueries.dll
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\FastQueries.pdb
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\PsqlConnector.dll
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\Npgsql.dll
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\PsqlConnector.pdb
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\bin\Debug\Npgsql.xml
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\obj\Debug\FastQueries.csprojResolveAssemblyReference.cache
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\obj\Debug\FastQueries.dll
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FastQueries\obj\Debug\FastQueries.pdb

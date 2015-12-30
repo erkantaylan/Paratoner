@@ -2,9 +2,12 @@
 
 using System;
 using System.Data;
+using System.Globalization;
 using System.Text;
 
 using FastQueries;
+using FastQueries.Select;
+using FastQueries.Update;
 
 using PsqlConnector;
 
@@ -15,8 +18,15 @@ namespace Cmd.Tester {
     public static class Tester {
         private static void Main(string[] args) {
             var dbo = new DbOperations();
-            var accountController = new AccountController(dbo);
-            Console.WriteLine(accountController.Check("erkan", "1234"));
+            //var accountController = new AccountController(dbo);
+            //var timeUpdater = new UpdateUserLoginTime(dbo);
+            //var id = accountController.Check("erkan", "1234");
+            //Console.WriteLine($"Account Check:{id}");
+            
+            //Console.WriteLine($"Update Time:{timeUpdater.UpdateTime(id, DateTime.Now.ToString(CultureInfo.InvariantCulture))}");
+
+            SelectUserGroupList userGroupList = new SelectUserGroupList(dbo);
+            Console.WriteLine(PrintTable(userGroupList.SelectGroups(1)));
 
             Console.ReadKey();
         }

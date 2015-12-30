@@ -33,9 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PsqlConnector">
-      <HintPath>..\PsqlConnector.cs\bin\Debug\PsqlConnector.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -46,8 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountController.cs" />
+    <Compile Include="Select\AccountController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select\SelectUserGroupList.cs" />
+    <Compile Include="Update\UpdateUserLoginTime.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PsqlConnector.cs\PsqlConnector.csproj">
+      <Project>{2c51584b-139d-405f-aad4-dcb9a2fde92e}</Project>
+      <Name>PsqlConnector</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Delete\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

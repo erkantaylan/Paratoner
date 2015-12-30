@@ -1,1 +1,1 @@
-c:\users\taylan\documents\visual studio 2015\Projects\FATURA_TAKIP\FATURA_TAKIP\bin\Debug\FATURA_TAKIP.exe.config
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\FATURA_TAKIP\bin\Debug\FATURA_TAKIP.exe.config

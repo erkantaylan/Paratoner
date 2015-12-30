@@ -1,11 +1,12 @@
-﻿<Controls:MetroWindow x:Class="Login.Main"
+﻿<Controls:MetroWindow x:Class="ET.Login.Main"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       mc:Ignorable="d"
-                      Height="300" Width="380">
+                      Title="LOGIN"
+                      Height="300" Width="500">
     <Grid>
         <Grid Background="White" Margin="5">
             <Grid.RowDefinitions>
@@ -15,16 +16,16 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label VerticalContentAlignment="Center" FontSize="20">Lütfen kullanıcı adı ve şifrenizi giriniz.</Label>
+            <Label VerticalContentAlignment="Center" FontSize="20">Please enter your username and password!</Label>
             <!--<TextBlock VerticalAlignment="Center" FontSize="25" Grid.Row="0" Grid.Column="0">Kullanıcı Adı</TextBlock>-->
             <TextBox x:Name="txtUsername" VerticalAlignment="Center" BorderThickness="0" FontSize="35" Grid.Row="1"
-                     Width="Auto" Controls:TextBoxHelper.Watermark="Kullanıcı Adı" />
+                     Width="Auto" Controls:TextBoxHelper.Watermark="Username" />
             <!--<TextBlock VerticalAlignment="Center" FontSize="25" Grid.Row="1" Grid.Column="0">Şifre</TextBlock>-->
             <PasswordBox x:Name="txtPassword" VerticalAlignment="Center" BorderThickness="0" FontSize="35" Grid.Row="2"
-                         Width="Auto" Controls:TextBoxHelper.Watermark="Şifre"
-                         Controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock Açık" />
+                         Width="Auto" Controls:TextBoxHelper.Watermark="Password"
+                         Controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock Open" />
             <Grid Grid.Row="3">
-                <Button x:Name="btnLogin" Controls:ButtonHelper.CornerRadius="0" Grid.Column="0" FontSize="35">GİRİŞ YAP</Button>
+                <Button x:Name="btnLogin" Controls:ButtonHelper.CornerRadius="0" Grid.Column="0" FontSize="35" Click="btnLogin_OnClick">LOGİN</Button>
                 <!--<Button Grid.Column="1" FontSize="35">ÇIKIŞ</Button>-->
             </Grid>
             <Grid Grid.Row="4">
@@ -51,8 +52,8 @@
                         </Setter>
                     </Style>
                 </Grid.Resources>
-                <Button x:Name="btnForgotPassword">
-                    Şifremi unuttum!
+                <Button x:Name="btnForgotPassword" Click="btnForgotPassword_OnClick">
+                    Fotgot password!
                 </Button>
             </Grid>
         </Grid>

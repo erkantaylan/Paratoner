@@ -115,6 +115,20 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastQueries\FastQueries.csproj">
+      <Project>{2ac056f9-d7f9-4397-a081-3881a42f277a}</Project>
+      <Name>FastQueries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Paratoner\Paratoner.csproj">
+      <Project>{e775fb8a-b1fd-435b-8f46-bd4e42c18c71}</Project>
+      <Name>Paratoner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PsqlConnector.cs\PsqlConnector.csproj">
+      <Project>{2C51584B-139D-405F-AAD4-DCB9A2FDE92E}</Project>
+      <Name>PsqlConnector</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
