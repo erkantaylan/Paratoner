@@ -4,11 +4,13 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:userControls="clr-namespace:Paratoner.UserControls"
                       mc:Ignorable="d"
-                      
-                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      Background="#FF007ACC"
                       BorderThickness="1"
-                      Height="350" Width="582.767">
+                      BorderBrush="#FF007ACC"
+                      MinHeight="505" MinWidth="560"
+                      Height="505" Width="560">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,76 +22,151 @@
         <Controls:WindowCommands>
             <Button x:Name="btnInvoiceOperations">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                         Visual="{StaticResource appbar_billing}"/>
+                                         Visual="{StaticResource appbar_billing}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="Group Operations" />
+                               VerticalAlignment="Center"
+                               Text="Group Operations" />
                 </StackPanel>
             </Button>
 
             <Button x:Name="btnGroupOperations">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                         Visual="{StaticResource appbar_group}"/>
+                                         Visual="{StaticResource appbar_group}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="Group Operations" />
+                               VerticalAlignment="Center"
+                               Text="Group Operations" />
                 </StackPanel>
             </Button>
 
             <Button x:Name="btnUserList">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                         Visual="{StaticResource appbar_people_multiple}"/>
+                                         Visual="{StaticResource appbar_people_multiple}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="User List" />
+                               VerticalAlignment="Center"
+                               Text="User List" />
                 </StackPanel>
             </Button>
-            
-            <Button x:Name="btnSettings">
+
+            <Button x:Name="btnSettings" Click="btnSettings_OnClick">
                 <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                    <Rectangle Width="20" Height="20"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
                             <VisualBrush Stretch="Fill"
-                         Visual="{StaticResource appbar_settings}"/>
+                                         Visual="{StaticResource appbar_settings}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="Settings" />
+                               VerticalAlignment="Center"
+                               Text="Settings" />
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Grid >
-        <Controls:MetroAnimatedSingleRowTabControl>
-            <TabItem Header="New Invoice">
-                <StackPanel>
-                    <ComboBox FontSize="30" HorizontalContentAlignment="Center" x:Name="cbxGroupList" Loaded="cbxGroupList_OnLoaded">
-                        
-                    </ComboBox>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Invoice Operations">
-                
-            </TabItem>
-            <TabItem Header="Calculate">
-                
-            </TabItem>
-        </Controls:MetroAnimatedSingleRowTabControl>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
+        </Grid.RowDefinitions>
+        <Grid Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Visible">
+            <Controls:MetroAnimatedSingleRowTabControl>
+                <TabItem Header="New Invoice">
+                    <StackPanel>
+                        <ComboBox Margin="0 3 0 3" FontSize="30" HorizontalContentAlignment="Center"
+                                  x:Name="cbxGroupList" Loaded="cbxGroupList_OnLoaded">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <ComboBoxItem Content="{Binding Name}" Background="Transparent"
+                                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                                  Foreground="{Binding ForegroundBrush}" HorizontalAlignment="Stretch" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBox Margin="0 3 0 3" x:Name="txtPrice" FontSize="26"
+                                 Controls:TextBoxHelper.Watermark="Price" />
+                        <StackPanel Margin="0 3 0 3">
+                            <Grid Margin="0 3 0 3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Row="0" x:Name="txtProduct" Margin="0,3,0,3" Grid.Column="0"
+                                         FontSize="26" KeyUp="txtProduct_OnKeyUp"
+                                         Controls:TextBoxHelper.Watermark="Product Name" />
+                                <Button x:Name="btnAddProduct" Grid.Row="0" Grid.Column="1" BorderThickness="0"
+                                        Margin="3 3 0 3" Click="btnAddProduct_OnClick">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Width="30" Height="30"
+                                                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Stretch="Fill"
+                                                             Visual="{StaticResource appbar_add}" />
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                        <TextBlock Margin="4 0 0 0"
+                                                   VerticalAlignment="Center"
+                                                   Text="Add New" />
+                                    </StackPanel>
+                                </Button>
+                                <ListBox x:Name="lbxProductList" Grid.Row="1" Grid.Column="0" Margin="0 3 0 3"
+                                         Grid.ColumnSpan="2" Height="200">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="100" />
+                                                </Grid.ColumnDefinitions>
+                                                <ListBoxItem Content="{Binding Name}" FontSize="26" />
+                                                <Button Grid.Column="1" Content="Delete" FontSize="24" Margin="3" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </StackPanel>
+                        <Button Margin="0 3 0 0" x:Name="btnAddInvoice" FontSize="26"
+                                Style="{DynamicResource SquareButtonStyle}"
+                                BorderThickness="1" Click="btnAddInvoice_OnClick">
+                            <TextBlock>SAVE</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Invoice Operations" />
+                <TabItem Header="Calculate" />
+            </Controls:MetroAnimatedSingleRowTabControl>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="grdOptions" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+            <userControls:UserOptions></userControls:UserOptions>
+        </Grid>
     </Grid>
 </Controls:MetroWindow>

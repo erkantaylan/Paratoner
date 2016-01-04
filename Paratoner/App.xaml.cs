@@ -1,11 +1,10 @@
-﻿using System.Windows;
+﻿namespace Paratoner {
 
-namespace Paratoner
-{
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
+    public partial class App {
+        public App() {
+            var general = new MainWindow(1);
+            general.Show();
+        }
     }
+
 }

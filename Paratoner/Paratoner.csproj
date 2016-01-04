@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\UserOptions.xaml.cs">
+      <DependentUpon>UserOptions.xaml</DependentUpon>
+    </Compile>
     <Page Include="General.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +82,10 @@
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UserOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +122,10 @@
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseClasses\DatabaseClasses.csproj">
+      <Project>{8B35131A-F739-4312-891E-D8C823D6AB10}</Project>
+      <Name>DatabaseClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FastQueries\FastQueries.csproj">
       <Project>{2ac056f9-d7f9-4397-a081-3881a42f277a}</Project>
       <Name>FastQueries</Name>
@@ -124,6 +135,7 @@
       <Name>PsqlConnector</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

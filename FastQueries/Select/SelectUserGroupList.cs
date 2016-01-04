@@ -34,7 +34,7 @@ namespace FastQueries.Select {
             JOIN groupmember ON "group".group_id = groupmember.group_id
             JOIN "user" ON groupmember.user_id = "user".user_id;
             */
-            var query = $"SELECT * FROM view_memberofgroups WHERE user_id={userId}";
+            var query = $"SELECT * FROM view_groupsofmember WHERE user_id={userId}";
             var table = this.Dbo.SelectTable(string.Format(query));
             return table;
         }
