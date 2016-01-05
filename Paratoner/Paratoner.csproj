@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\GroupOperations.xaml.cs">
+      <DependentUpon>GroupOperations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserOptions.xaml.cs">
       <DependentUpon>UserOptions.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\GroupOperations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UserOptions.xaml">
       <SubType>Designer</SubType>
