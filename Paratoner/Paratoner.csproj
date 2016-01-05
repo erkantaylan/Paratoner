@@ -64,8 +64,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\AdminOperations.xaml.cs">
+      <DependentUpon>AdminOperations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\GroupOperations.xaml.cs">
       <DependentUpon>GroupOperations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InvoiceOperations.xaml.cs">
+      <DependentUpon>InvoiceOperations.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserOptions.xaml.cs">
       <DependentUpon>UserOptions.xaml</DependentUpon>
@@ -86,7 +92,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\AdminOperations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\GroupOperations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\InvoiceOperations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\Paratoner\App.xaml
-3-40258664
+6-1378557192
 
-10-796140895
+13476535670
 171344569936
-General.xaml;Resources\Icons.xaml;UserControls\UserOptions.xaml;
+General.xaml;Resources\Icons.xaml;UserControls\AdminOperations.xaml;UserControls\GroupOperations.xaml;UserControls\InvoiceOperations.xaml;UserControls\UserOptions.xaml;
 
 False
 

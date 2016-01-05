@@ -5,14 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="350">
     <Grid>
         <StackPanel>
-            <GroupBox Header="GROUP LIST" Margin="2">
-                <StackPanel>
-                    <DataGrid Height="100" Margin="4" />
-                </StackPanel>
-            </GroupBox>
+            <Controls:MetroAnimatedTabControl>
+                <TabItem Header="GROUP LIST">
+                    <StackPanel>
+                        <DataGrid Height="100" Margin="5" />
+                        <TextBox Margin="5" Controls:TextBoxHelper.Watermark="Search" />
+                        <Button Margin="5" Controls:ButtonHelper.CornerRadius="0" Background="LightBlue">
+                            <TextBlock>JOIN REQUEST</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="NEW GROUP">
+                    <StackPanel>
+                        <TextBox FontSize="26" Margin="5" Controls:TextBoxHelper.Watermark="Name" />
+                        <Controls:NumericUpDown FontSize="26" Margin="5" Controls:TextBoxHelper.Watermark="CutoffDay"
+                                                Minimum="1" Maximum="31" HorizontalContentAlignment="Left"
+                                                Controls:TextBoxHelper.UseFloatingWatermark="True" />
+                        <Button Margin="5" Controls:ButtonHelper.CornerRadius="0" FontSize="20" Background="LightGreen">
+                            <TextBlock>
+                                CREATE GROUP
+                            </TextBlock>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="MY GROUPS">
+                    <StackPanel>
+                        <ComboBox IsEditable="True" Controls:TextBoxHelper.Watermark="CHOOSE A GROUP" Margin="5" FontSize="26"/>
+                        <TextBox FontSize="26" Margin="5" Controls:TextBoxHelper.Watermark="Name" />
+                        <Controls:NumericUpDown FontSize="26" Margin="5" Controls:TextBoxHelper.Watermark="CutoffDay"
+                                                Minimum="1" Maximum="31" HorizontalContentAlignment="Left"
+                                                Controls:TextBoxHelper.UseFloatingWatermark="True" />
+                        <Button Margin="5" Controls:ButtonHelper.CornerRadius="0" FontSize="20" Background="LightGreen">
+                            <TextBlock>
+                                UPDATE GROUP
+                            </TextBlock>
+                        </Button>
+                    </StackPanel>
+                </TabItem>
+            </Controls:MetroAnimatedTabControl>
         </StackPanel>
     </Grid>
 </UserControl>
