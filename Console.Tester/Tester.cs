@@ -25,9 +25,13 @@ namespace Cmd.Tester {
             
             //Console.WriteLine($"Update Time:{timeUpdater.UpdateTime(id, DateTime.Now.ToString(CultureInfo.InvariantCulture))}");
 
-            SelectUserGroupList userGroupList = new SelectUserGroupList(dbo);
-            Console.WriteLine(PrintTable(userGroupList.SelectGroups(1)));
+            //SelectUserGroupList userGroupList = new SelectUserGroupList(dbo);
+            //Console.WriteLine(PrintTable(userGroupList.SelectGroups(1)));
 
+            CheckPassword cp = new CheckPassword(dbo);
+            ChangePassword cp2 = new ChangePassword(dbo);
+            Console.WriteLine(cp.Check(1, "12345"));
+            Console.WriteLine(cp2.Do(1, "1234"));
             Console.ReadKey();
         }
 
@@ -49,6 +53,8 @@ namespace Cmd.Tester {
             }
             return print.ToString();
         }
+
+
     }
 
 }

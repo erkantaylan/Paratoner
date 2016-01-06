@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             d:DesignHeight="500" d:DesignWidth="400">
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" d:DesignWidth="400" Height="466">
     <Grid>
         <StackPanel>
             <GroupBox Header="USER INFO" FontSize="20">
@@ -19,17 +18,17 @@
                     <TextBox Margin="2" Width="360" FontSize="20"  x:Name="txtUserLastName" Controls:TextBoxHelper.Watermark="Lastname" />
                     <TextBox Margin="2" Width="360" FontSize="20"  x:Name="txtUserEmail" Controls:TextBoxHelper.Watermark="E Mail" />
                     <TextBox Margin="2" Width="360" FontSize="20"  x:Name="txtUserPhone" Controls:TextBoxHelper.Watermark="Phone Number" />
-                    <Button Margin="2" x:Name="btnSaveInfo"  FontSize="20" Width="360">
+                    <Button Margin="2" x:Name="btnSaveInfo"  FontSize="20" Width="360" Click="btnSaveInfo_Click">
                         <TextBlock>SAVE</TextBlock>
                     </Button>
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="PASSWORD">
                 <StackPanel>
-                    <TextBox Margin="2" Width="360" FontSize="20" x:Name="txtOldPassword" Controls:TextBoxHelper.Watermark="Name" />
-                    <TextBox Margin="2" Width="360" FontSize="20" x:Name="txtNewPassword1" Controls:TextBoxHelper.Watermark="Name" />
-                    <TextBox Margin="2" Width="360" FontSize="20" x:Name="txtNewPassword2" Controls:TextBoxHelper.Watermark="Name" />
-                    <Button Margin="2" x:Name="btnSavePassword"  FontSize="20" Width="360">
+                    <PasswordBox Margin="2" Width="360" FontSize="20" x:Name="txtOldPassword" Controls:TextBoxHelper.Watermark="Old Password" />
+                    <PasswordBox Margin="2" Width="360" FontSize="20" x:Name="txtNewPassword1" Controls:TextBoxHelper.Watermark="New Password" />
+                    <PasswordBox Margin="2" Width="360" FontSize="20" x:Name="txtNewPassword2" Controls:TextBoxHelper.Watermark="New Password" />
+                    <Button Margin="2" x:Name="btnSavePassword"  FontSize="20" Width="360" Click="btnSavePassword_Click">
                         <TextBlock>SAVE</TextBlock>
                     </Button>
                 </StackPanel>

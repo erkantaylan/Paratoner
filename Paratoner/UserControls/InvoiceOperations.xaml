@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             mc:Ignorable="d" d:DesignWidth="500" Height="740">
+             mc:Ignorable="d" d:DesignWidth="500" Height="640">
     <GroupBox Header="INVOICE OPERATIONS">
         <Grid>
             <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <ComboBox Grid.Row="0" Grid.Column="0" IsEditable="True"
-                      Controls:TextBoxHelper.Watermark="CHOOSE A HOME" Margin="5" />
+                      Controls:TextBoxHelper.Watermark="CHOOSE A HOME" Margin="2" />
             <GroupBox Grid.Row="1" Header="DATE RANGE">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -25,9 +25,9 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <DatePicker Grid.Column="0" Margin="5" />
-                    <DatePicker Grid.Column="1" Margin="5" />
-                    <Controls:ToggleSwitch Grid.Column="2" Margin="5" OnLabel="ON" OffLabel="OFF" />
+                    <DatePicker Grid.Column="0" Margin="2" />
+                    <DatePicker Grid.Column="1" Margin="2" />
+                    <Controls:ToggleSwitch Grid.Column="2" Margin="2" OnLabel="ON" OffLabel="OFF" />
                 </Grid>
             </GroupBox>
 
@@ -39,9 +39,9 @@
                         <ColumnDefinition Width="Auto" />
 
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Margin="5" />
-                    <TextBox Grid.Column="1" Margin="5" />
-                    <Controls:ToggleSwitch Grid.Column="2" Margin="5" OnLabel="ON" OffLabel="OFF" />
+                    <TextBox Grid.Column="0" Margin="2" />
+                    <TextBox Grid.Column="1" Margin="2" />
+                    <Controls:ToggleSwitch Grid.Column="2" Margin="2" OnLabel="ON" OffLabel="OFF" />
                 </Grid>
             </GroupBox>
 
@@ -52,13 +52,13 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Grid.Column="0" Margin="5" />
-                    <Controls:ToggleSwitch Grid.Column="1" Margin="5" OnLabel="ON" OffLabel="OFF" />
+                    <TextBox Grid.Column="0" Margin="2" />
+                    <Controls:ToggleSwitch Grid.Column="1" Margin="2" OnLabel="ON" OffLabel="OFF" FontSize="14"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="4">
                 <Grid>
-                    <Controls:ToggleSwitch OnLabel="UNCUT INVOICES" OffLabel="CUT INVOICES" />
+                    <Controls:ToggleSwitch OnLabel="UNCUT INVOICES" OffLabel="CUT INVOICES" FontSize="14"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="5">
@@ -68,20 +68,20 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Margin="5" Controls:ButtonHelper.CornerRadius="0" Background="Red">
+                    <Button Grid.Column="0" Margin="2" Controls:ButtonHelper.CornerRadius="0" Background="Red">
                         <TextBlock>DELETE</TextBlock>
                     </Button>
-                    <Button Grid.Column="1" Margin="5" Controls:ButtonHelper.CornerRadius="0" Background="DeepSkyBlue">
+                    <Button Grid.Column="1" Margin="2" Controls:ButtonHelper.CornerRadius="0" Background="DeepSkyBlue">
                         <TextBlock>UPDATE</TextBlock>
                     </Button>
-                    <Button Grid.Column="2" Margin="5" Controls:ButtonHelper.CornerRadius="0" Background="LightYellow">
+                    <Button Grid.Column="2" Margin="2" Controls:ButtonHelper.CornerRadius="0" Background="LightYellow">
                         <TextBlock>CUT</TextBlock>
                     </Button>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="6">
                 <Grid>
-                    <DataGrid Height="200"/>
+                    <DataGrid Height="100" FontSize="14"/>
                 </Grid>
             </GroupBox>
         </Grid>

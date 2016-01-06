@@ -6,11 +6,11 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:userControls="clr-namespace:Paratoner.UserControls"
                       mc:Ignorable="d"
-                      Background="#FF007ACC"
+                      
                       BorderThickness="1"
                       BorderBrush="#FF007ACC"
-                      MinHeight="505" MinWidth="560"
-                      Height="505" Width="560">
+                      MinHeight="505" MinWidth="580"
+                      Height="505" Width="580">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,7 +20,7 @@
     </Window.Resources>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button x:Name="btnInvoiceOperations">
+            <Button x:Name="btnInvoiceOperations" Click="btnInvoiceOperations_OnClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
                                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
@@ -31,11 +31,11 @@
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                                VerticalAlignment="Center"
-                               Text="Group Operations" />
+                               Text="INVOICE" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnGroupOperations">
+            <Button x:Name="btnGroupOperations" Click="btnGroupOperations_OnClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
                                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
@@ -46,11 +46,11 @@
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                                VerticalAlignment="Center"
-                               Text="Group Operations" />
+                               Text="GROUPS" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="btnUserList">
+            <Button x:Name="btnUserList" Click="btnUserList_OnClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20"
                                Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
@@ -61,7 +61,7 @@
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                                VerticalAlignment="Center"
-                               Text="User List" />
+                               Text="ADMIN OPERATIONS" />
                 </StackPanel>
             </Button>
 
@@ -76,7 +76,7 @@
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                                VerticalAlignment="Center"
-                               Text="Settings" />
+                               Text="SETTINGS" />
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
@@ -92,8 +92,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="0" />
         </Grid.RowDefinitions>
-        <Grid Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Visible">
-            <Controls:MetroAnimatedSingleRowTabControl>
+        <Grid x:Name="grdInvoice" Margin="5" Grid.Row="1" Grid.Column="1" Visibility="Visible">
+            <Controls:MetroAnimatedSingleRowTabControl x:Name="tabInvoice" SelectionChanged="tabInvoice_OnSelectionChanged">
                 <TabItem Header="New Invoice">
                     <StackPanel>
                         <ComboBox Margin="0 3 0 3" FontSize="30" HorizontalContentAlignment="Center"
@@ -161,12 +161,14 @@
                         </Button>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Invoice Operations" />
-                <TabItem Header="Calculate" />
+                <TabItem Header="Invoice Operations">
+                    <userControls:InvoiceOperations/>
+                </TabItem>
+                <TabItem Header="Calculate" >
+                    <userControls:InvoiceLoanCalculate/>
+                </TabItem>
             </Controls:MetroAnimatedSingleRowTabControl>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" x:Name="grdOptions" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
-            <userControls:UserOptions></userControls:UserOptions>
-        </Grid>
+        <Grid x:Name="grdOptions" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
     </Grid>
 </Controls:MetroWindow>

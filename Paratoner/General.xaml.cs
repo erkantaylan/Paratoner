@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -13,6 +14,8 @@ using FastQueries.Insert;
 using FastQueries.Select;
 
 using MahApps.Metro.Controls.Dialogs;
+
+using Paratoner.UserControls;
 
 using PsqlConnector;
 
@@ -26,8 +29,13 @@ namespace Paratoner {
         private List<GroupsOfMember> _groupList;
         private List<Product> _productList;
 
+        private GroupOperations _groupOperations = new GroupOperations();
+        private UserOptions _userOptions;
+        private AdminOperations _adminOperations = new AdminOperations();
+
         public MainWindow(int userId) {
             this._userId = userId;
+            _userOptions = new UserOptions(userId);
             InitializeComponent();
         }
 
@@ -64,21 +72,20 @@ namespace Paratoner {
                 await this.ShowMessageAsync("SAVE INVOICE", "Enter a valid price!");
                 return;
             }
-            
 
-            int groupId = this._groupList[this.cbxGroupList.SelectedIndex].GroupId;
-            int userId = this._userId;
-            string time = DateTime.Now.ToString(CultureInfo.InvariantCulture);
-            Invoice invoice = new Invoice {
-                                              GroupId = groupId,
-                                              UserId = userId,
-                                              BuyDate = time,
-                                              IsExpired = false,
-                                              Price = price
-                                          };
-            
+            var groupId = this._groupList[this.cbxGroupList.SelectedIndex].GroupId;
+            var userId = this._userId;
+            var time = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            var invoice = new Invoice {
+                                          GroupId = groupId,
+                                          UserId = userId,
+                                          BuyDate = time,
+                                          IsExpired = false,
+                                          Price = price
+                                      };
+
             var add = new AddNewInvoice(Dbo);
-            int invoiceId = -1;
+            var invoiceId = -1;
             if (add.Insert(invoice)) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Inovice Saved!");
                 invoiceId = add.GetLastInvoiceId();
@@ -100,8 +107,45 @@ namespace Paratoner {
             }
         }
 
-        private async void btnSettings_OnClick(object sender, RoutedEventArgs e) {
-            
+        private void btnSettings_OnClick(object sender, RoutedEventArgs e) {
+            this.grdInvoice.Visibility = Visibility.Hidden;
+
+            this.grdOptions.Children.Clear();
+            this.grdOptions.Children.Add(_userOptions);
+
+            this.grdOptions.Visibility = Visibility.Visible;
+        }
+
+
+        private void btnInvoiceOperations_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.grdOptions.Visibility = Visibility.Hidden;
+            this.grdInvoice.Visibility = Visibility.Visible;
+
+        }
+
+        private void btnGroupOperations_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.grdInvoice.Visibility = Visibility.Hidden;
+            this.grdOptions.Children.Clear();
+            this.grdOptions.Children.Add(_groupOperations);
+            this.grdOptions.Visibility = Visibility.Visible;
+        }
+
+        private void btnUserList_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.grdInvoice.Visibility = Visibility.Hidden;
+            this.grdOptions.Children.Clear();
+            this.grdOptions.Children.Add(_adminOperations);
+            this.grdOptions.Visibility = Visibility.Visible;
+        }
+
+        private void tabInvoice_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (this.tabInvoice.SelectedIndex == 1) {
+                if (this.WindowState != WindowState.Maximized) {
+                    this.Height = 680;
+                }
+            }
         }
 
         #endregion
@@ -131,6 +175,7 @@ namespace Paratoner {
             groupmember.is_approved, 
             "group".cutoff_day        
         */
+
         private List<GroupsOfMember> SelectGroupsOfMemberById(int userId) {
             var userGroupList = new SelectUserGroupList(Dbo);
             return GroupsOfMember.TableToList(userGroupList.SelectGroups(userId));
@@ -156,8 +201,9 @@ namespace Paratoner {
             this.txtProduct.Text = String.Empty;
             this.txtPrice.Text = String.Empty;
         }
-        
+
         #endregion
+
     }
 
 }
