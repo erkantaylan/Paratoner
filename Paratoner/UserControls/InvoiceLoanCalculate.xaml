@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Paratoner.UserControls.InvoiceLoanCalculate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignHeight="420" d:DesignWidth="400">
+    <Grid>
+        <StackPanel>
+            <GroupBox Header="INVOICE LIST">
+                <StackPanel>
+                    <ComboBox IsEditable="True" Controls:TextBoxHelper.Watermark="Please Choose A Group" Margin="2"/>
+                    <DataGrid Height="150" Margin="2"></DataGrid>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="LOAN LIST">
+                <StackPanel>
+                    <DataGrid Height="100" Margin="2"></DataGrid>
+                    <Button Margin="2" Controls:ButtonHelper.CornerRadius="0">
+                        <TextBlock>CUT</TextBlock>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

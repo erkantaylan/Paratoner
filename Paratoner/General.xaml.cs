@@ -32,11 +32,20 @@ namespace Paratoner {
         private GroupOperations _groupOperations = new GroupOperations();
         private UserOptions _userOptions;
         private AdminOperations _adminOperations = new AdminOperations();
+        private InvoiceOperations _invoiceOperations;
 
         public MainWindow(int userId) {
             this._userId = userId;
-            _userOptions = new UserOptions(userId);
+            this._userOptions = new UserOptions(userId);
+            this._invoiceOperations = new InvoiceOperations(userId);
+
             InitializeComponent();
+
+            this.Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+            tabiInvoiceOperations.Content = this._invoiceOperations;
         }
 
         #region EVENTS
@@ -85,25 +94,27 @@ namespace Paratoner {
                                       };
 
             var add = new AddNewInvoice(Dbo);
-            var invoiceId = -1;
             if (add.Insert(invoice)) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Inovice Saved!");
-                invoiceId = add.GetLastInvoiceId();
-                ClearInvoiceScreen();
+
+                var invoiceId = add.GetLastInvoiceId();
+
+                if (this._productList.Count > 0) {
+                    // eger product eklenmisse kaydet
+                    var saveProduct = new AddNewProduct(Dbo);
+
+                    if (saveProduct.Insert(this._productList, invoiceId)) {
+                        await this.ShowMessageAsync("SAVE PRODUCTS", "Products Saved!");
+
+                        ClearInvoiceScreen();
+                    }
+                    else {
+                        await this.ShowMessageAsync("SAVE PRODUCTS", "Something gone wrong!");
+                    }
+                }
             }
             else {
                 await this.ShowMessageAsync("SAVE INVOICE", "Something gone wrong!");
-            }
-            if (this._productList.Count > 0) {
-                // eger product eklenmisse kaydet
-                var saveProduct = new AddNewProduct(Dbo);
-                //TODO invoiceId lazim
-                if (saveProduct.Insert(this._productList, invoiceId)) {
-                    await this.ShowMessageAsync("SAVE PRODUCTS", "Products Saved!");
-                }
-                else {
-                    await this.ShowMessageAsync("SAVE PRODUCTS", "Something gone wrong!");
-                }
             }
         }
 
@@ -145,6 +156,10 @@ namespace Paratoner {
                 if (this.WindowState != WindowState.Maximized) {
                     this.Height = 680;
                 }
+            }
+            if (this.tabInvoice.SelectedIndex == 2) {
+                
+
             }
         }
 
@@ -200,6 +215,7 @@ namespace Paratoner {
             this.lbxProductList.Items.Clear();
             this.txtProduct.Text = String.Empty;
             this.txtPrice.Text = String.Empty;
+            this._productList.Clear();
         }
 
         #endregion

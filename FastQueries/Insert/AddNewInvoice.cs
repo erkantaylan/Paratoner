@@ -42,13 +42,13 @@ namespace FastQueries.Insert {
             /*  SELECT invoice_id, user_id, group_id, buy_date, is_expired, price
                 FROM public.invoice;*/
             var query = "SELECT invoice_id FROM public.invoice WHERE " +
-                        $"user_id={this._invoice.UserId}  AND" +
-                        $"group_id={this._invoice.GroupId} AND" +
-                        $"buy_date=\'{this._invoice.BuyDate}\' AND" +
-                        $"is_expired=\'{this._invoice.IsExpired}\' AND" +
-                        $"price=\'{this._invoice.Price}\' " +
-                        "ORDER BY " +
-                        "invoice_id DESC";
+                        $" user_id={this._invoice.UserId}  AND " +
+                        $" group_id={this._invoice.GroupId} AND " +
+                        $" buy_date=\'{this._invoice.BuyDate}\' AND " +
+                        $" is_expired=\'{this._invoice.IsExpired}\' AND " +
+                        $" price=\'{this._invoice.Price}\' " +
+                        " ORDER BY " +
+                        " invoice_id DESC";
             
             var dt = this._dbo.SelectTable(query);
 

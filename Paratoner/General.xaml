@@ -6,7 +6,7 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:userControls="clr-namespace:Paratoner.UserControls"
                       mc:Ignorable="d"
-                      
+                      WindowState="Maximized"
                       BorderThickness="1"
                       BorderBrush="#FF007ACC"
                       MinHeight="505" MinWidth="580"
@@ -96,7 +96,7 @@
             <Controls:MetroAnimatedSingleRowTabControl x:Name="tabInvoice" SelectionChanged="tabInvoice_OnSelectionChanged">
                 <TabItem Header="New Invoice">
                     <StackPanel>
-                        <ComboBox Margin="0 3 0 3" FontSize="30" HorizontalContentAlignment="Center"
+                        <ComboBox Margin="0 3 0 3" FontSize="24" HorizontalContentAlignment="Center"
                                   x:Name="cbxGroupList" Loaded="cbxGroupList_OnLoaded">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
@@ -161,8 +161,8 @@
                         </Button>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Invoice Operations">
-                    <userControls:InvoiceOperations/>
+                <TabItem x:Name="tabiInvoiceOperations" Header="Invoice Operations">
+                    <!--<userControls:InvoiceOperations/>-->
                 </TabItem>
                 <TabItem Header="Calculate" >
                     <userControls:InvoiceLoanCalculate/>

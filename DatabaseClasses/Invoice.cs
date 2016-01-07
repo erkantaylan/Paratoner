@@ -1,4 +1,6 @@
-﻿namespace DatabaseClasses {
+﻿using System.Collections.Generic;
+
+namespace DatabaseClasses {
 
     public class Invoice {
         public int InvocieId { get; set; }
@@ -7,6 +9,9 @@
         public string BuyDate { get; set; }
         public double Price { get; set; }
         public bool IsExpired { get; set; }
+        public string UserName { get; set; }
+
+        public List<Product> ProductList{ get; set; }
 
         public override string ToString() {
             var all = $"invoiceId:{this.InvocieId}," +

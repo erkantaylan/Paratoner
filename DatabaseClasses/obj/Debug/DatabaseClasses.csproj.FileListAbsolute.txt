@@ -1,0 +1,5 @@
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\DatabaseClasses\bin\Debug\DatabaseClasses.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\DatabaseClasses\bin\Debug\DatabaseClasses.pdb
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\DatabaseClasses\obj\Debug\DatabaseClasses.csprojResolveAssemblyReference.cache
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\DatabaseClasses\obj\Debug\DatabaseClasses.dll
+C:\Users\taylan\Documents\Visual Studio 2015\Projects\FATURA_TAKIP\DatabaseClasses\obj\Debug\DatabaseClasses.pdb
