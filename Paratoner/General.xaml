@@ -141,14 +141,20 @@
                                          Grid.ColumnSpan="2" Height="200">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition />
-                                                    <ColumnDefinition Width="100" />
-                                                </Grid.ColumnDefinitions>
-                                                <ListBoxItem Content="{Binding Name}" FontSize="26" />
-                                                <Button Grid.Column="1" Content="Delete" FontSize="24" Margin="3" />
-                                            </Grid>
+                                            <ListBoxItem>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition Width="100" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="{Binding ProductId}" Margin="3" FontSize="20" VerticalAlignment="Center" TextAlignment="Left"/>
+                                                    <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="20" Margin="3" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left"/>
+                                                    <Button x:Name="btnDeleteProduct" Grid.Column="2" Click="BtnDeleteProduct_OnClick" FontSize="20" Margin="3" >
+                                                        <TextBlock Margin="2">DELETE</TextBlock>
+                                                    </Button>
+                                                </Grid>
+                                            </ListBoxItem>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
@@ -164,8 +170,7 @@
                 <TabItem x:Name="tabiInvoiceOperations" Header="Invoice Operations">
                     <!--<userControls:InvoiceOperations/>-->
                 </TabItem>
-                <TabItem Header="Calculate" >
-                    <userControls:InvoiceLoanCalculate/>
+                <TabItem x:Name="tabInvoiceLoanCalculate" Header="Calculate" >
                 </TabItem>
             </Controls:MetroAnimatedSingleRowTabControl>
         </Grid>

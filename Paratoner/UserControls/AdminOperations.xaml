@@ -5,22 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="350">
+             d:DesignHeight="500" d:DesignWidth="450">
     <GroupBox Header="ADMIN OPERATIONS">
         <StackPanel>
-            <ComboBox FontSize="26" IsEditable="True" Controls:TextBoxHelper.Watermark="CHOOSE A HOME" Margin="5" />
-            <DataGrid Height="200" Margin="5" />
+            <ComboBox FontSize="26" Margin="5" x:Name="cbxGroupList" Loaded="cbxGroupList_OnLoaded"
+                              SelectionChanged="Selector_OnSelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <ComboBoxItem Content="{Binding Name}" Background="Transparent"
+                                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                              Foreground="{Binding ForegroundBrush}" HorizontalAlignment="Stretch" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <DataGrid x:Name="dg" Height="200" Margin="5"  IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" SelectionMode="Single"
+                              CanUserDeleteRows="False" CanUserResizeRows="False" MaxHeight="500" CanUserReorderColumns="False"/>
             <GroupBox Header="SHOW ALL">
-                <Controls:ToggleSwitch IsChecked="True" Margin="5" OnLabel="ON" OffLabel="OFF" />
+                <Controls:ToggleSwitch x:Name="tgShowAll" IsChecked="True" Margin="5" OnLabel="ON" OffLabel="OFF" />
             </GroupBox>
-            <Button Controls:ButtonHelper.CornerRadius="0" Background="Green" Margin="5" FontSize="20">
+            <Button Controls:ButtonHelper.CornerRadius="0" Background="Green" Margin="5" FontSize="20" x:Name="btnAccepMember" Click="btnAccepMember_Click">
                 <TextBlock>
-                    ACCEPT SELECTED MEMBERS
+                    ACCEPT SELECTED MEMBER
                 </TextBlock>
             </Button>
-            <Button Controls:ButtonHelper.CornerRadius="0" Background="Red" Margin="5" FontSize="20">
+            <Button Controls:ButtonHelper.CornerRadius="0" Background="Red" Margin="5" FontSize="20" x:Name="btnDeleteMember" Click="btnDeleteMember_Click">
                 <TextBlock>
-                    DELETE SELECTED MEMBERS
+                    DELETE SELECTED MEMBER
                 </TextBlock>
             </Button>
         </StackPanel>

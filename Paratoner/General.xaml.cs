@@ -13,6 +13,7 @@ using DatabaseClasses;
 using FastQueries.Insert;
 using FastQueries.Select;
 
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
 using Paratoner.UserControls;
@@ -25,19 +26,22 @@ namespace Paratoner {
 
     public partial class MainWindow {
         private readonly int _userId;
-        private readonly DbOperations Dbo = new DbOperations();
+        private readonly DbOperations _dbo = new DbOperations();
         private List<GroupsOfMember> _groupList;
         private List<Product> _productList;
 
-        private GroupOperations _groupOperations = new GroupOperations();
-        private UserOptions _userOptions;
-        private AdminOperations _adminOperations = new AdminOperations();
-        private InvoiceOperations _invoiceOperations;
+        private GroupOperations      _groupOperations;
+        private UserOptions          _userOptions;
+        private InvoiceLoanCalculate _invoiceLoanCalculate;
+        private AdminOperations      _adminOperations;
+        private InvoiceOperations    _invoiceOperations;
 
         public MainWindow(int userId) {
-            this._userId = userId;
-            this._userOptions = new UserOptions(userId);
-            this._invoiceOperations = new InvoiceOperations(userId);
+            this._userId               = userId;
+            this._userOptions          = new UserOptions(userId);
+            this._invoiceOperations    = new InvoiceOperations(userId);
+            this._invoiceLoanCalculate = new InvoiceLoanCalculate(userId);
+            this._adminOperations      = new AdminOperations(userId);
 
             InitializeComponent();
 
@@ -46,9 +50,27 @@ namespace Paratoner {
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
             tabiInvoiceOperations.Content = this._invoiceOperations;
+            tabInvoiceLoanCalculate.Content = this._invoiceLoanCalculate;
         }
 
         #region EVENTS
+
+        private void BtnDeleteProduct_OnClick(object sender, RoutedEventArgs e) {
+            var parent = ( (Button) sender ).TryFindParent<Grid>();
+            int  selectedIndex = Convert.ToInt32(( (TextBlock) parent.Children[0] ).Text);
+            var deleteIndex = selectedIndex - 1;
+            this._productList.RemoveAt(deleteIndex);
+            //git parenti bul oradan index txt ye gec, numarayi al gel bana, sonra onu sil
+            //sildikten sonra silinen indexten baslayarak(o silindigi icin yerine bir sonraki geldi, yarista ikinciyi gecersen kacinci olursun sorusuyla ayni cevap
+            //ondan sonraki indexleri 1 azalt cunku sira degisti
+
+            for (int i = deleteIndex; i < this._productList.Count; i++) {
+                --this._productList[i].ProductId;
+            }
+
+            lbxProductList.ItemsSource = null;
+            lbxProductList.ItemsSource = this._productList;
+        }
 
         private void cbxGroupList_OnLoaded(object sender, RoutedEventArgs e) {
             this.LoadGroupList();
@@ -93,7 +115,7 @@ namespace Paratoner {
                                           Price = price
                                       };
 
-            var add = new AddNewInvoice(Dbo);
+            var add = new AddNewInvoice(this._dbo);
             if (add.Insert(invoice)) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Inovice Saved!");
 
@@ -101,7 +123,7 @@ namespace Paratoner {
 
                 if (this._productList.Count > 0) {
                     // eger product eklenmisse kaydet
-                    var saveProduct = new AddNewProduct(Dbo);
+                    var saveProduct = new AddNewProduct(this._dbo);
 
                     if (saveProduct.Insert(this._productList, invoiceId)) {
                         await this.ShowMessageAsync("SAVE PRODUCTS", "Products Saved!");
@@ -192,7 +214,7 @@ namespace Paratoner {
         */
 
         private List<GroupsOfMember> SelectGroupsOfMemberById(int userId) {
-            var userGroupList = new SelectUserGroupList(Dbo);
+            var userGroupList = new SelectUserGroupList(this._dbo);
             return GroupsOfMember.TableToList(userGroupList.SelectGroups(userId));
         }
 
@@ -203,6 +225,7 @@ namespace Paratoner {
             var productName = txtProduct.Text.Trim();
             this._productList.Add(
                 new Product {
+                                ProductId = _productList.Count + 1,
                                 Name = productName
                             });
             this.txtProduct.Text = String.Empty;
@@ -220,6 +243,9 @@ namespace Paratoner {
 
         #endregion
 
+        private void UIElement_OnMouseUp(object sender, MouseButtonEventArgs e) {
+            ( (TextBlock) sender ).TryFindParent<Grid>().TryFindParent<ListBoxItem>().IsSelected = true;
+        }
     }
 
 }

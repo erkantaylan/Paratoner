@@ -38,6 +38,12 @@ namespace FastQueries.Select {
             var table = this.Dbo.SelectTable(string.Format(query));
             return table;
         }
+
+        public DataTable SelectGroupsOnlyAsAdmin(int userId) {
+            var query = $"SELECT * FROM view_groupsofmember WHERE user_id={userId} AND is_admin=TRUE;";
+            var table = this.Dbo.SelectTable(string.Format(query));
+            return table;
+        }
     }
 
 }
