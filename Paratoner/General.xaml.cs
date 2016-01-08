@@ -30,11 +30,11 @@ namespace Paratoner {
         private List<GroupsOfMember> _groupList;
         private List<Product> _productList;
 
-        private GroupOperations      _groupOperations;
-        private UserOptions          _userOptions;
-        private InvoiceLoanCalculate _invoiceLoanCalculate;
-        private AdminOperations      _adminOperations;
-        private InvoiceOperations    _invoiceOperations;
+        private readonly GroupOperations      _groupOperations;
+        private readonly UserOptions          _userOptions;
+        private readonly InvoiceLoanCalculate _invoiceLoanCalculate;
+        private readonly AdminOperations      _adminOperations;
+        private readonly InvoiceOperations    _invoiceOperations;
 
         public MainWindow(int userId) {
             this._userId               = userId;
@@ -42,15 +42,16 @@ namespace Paratoner {
             this._invoiceOperations    = new InvoiceOperations(userId);
             this._invoiceLoanCalculate = new InvoiceLoanCalculate(userId);
             this._adminOperations      = new AdminOperations(userId);
-
+            this._groupOperations      = new GroupOperations(userId);
+            
             InitializeComponent();
 
-            this.Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-            tabiInvoiceOperations.Content = this._invoiceOperations;
-            tabInvoiceLoanCalculate.Content = this._invoiceLoanCalculate;
+            this.tabiInvoiceOperations.Content = this._invoiceOperations;
+            this.tabInvoiceLoanCalculate.Content = this._invoiceLoanCalculate;
         }
 
         #region EVENTS
@@ -68,38 +69,38 @@ namespace Paratoner {
                 --this._productList[i].ProductId;
             }
 
-            lbxProductList.ItemsSource = null;
-            lbxProductList.ItemsSource = this._productList;
+            this.lbxProductList.ItemsSource = null;
+            this.lbxProductList.ItemsSource = this._productList;
         }
 
         private void cbxGroupList_OnLoaded(object sender, RoutedEventArgs e) {
-            this.LoadGroupList();
+            LoadGroupList();
         }
 
         private void btnAddProduct_OnClick(object sender, RoutedEventArgs e) {
-            if (txtProduct.Text.Length > 0) {
+            if ( this.txtProduct.Text.Length > 0) {
                 AddProduct();
             }
-            txtProduct.Focus();
+            this.txtProduct.Focus();
         }
 
         private void txtProduct_OnKeyUp(object sender, KeyEventArgs e) {
             if (e.Key == Key.Enter) {
-                this.AddProduct();
+                AddProduct();
             }
         }
 
         private async void btnAddInvoice_OnClick(object sender, RoutedEventArgs e) {
-            if (cbxGroupList.SelectedIndex < 1) {
+            if ( this.cbxGroupList.SelectedIndex < 1) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Please select a group!");
                 return;
             }
-            if (txtPrice.Text == String.Empty) {
+            if ( this.txtPrice.Text == String.Empty) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Price cannot be empty!");
                 return;
             }
             double price;
-            if (!double.TryParse(txtPrice.Text, out price)) {
+            if (!double.TryParse(this.txtPrice.Text, out price)) {
                 await this.ShowMessageAsync("SAVE INVOICE", "Enter a valid price!");
                 return;
             }
@@ -144,7 +145,7 @@ namespace Paratoner {
             this.grdInvoice.Visibility = Visibility.Hidden;
 
             this.grdOptions.Children.Clear();
-            this.grdOptions.Children.Add(_userOptions);
+            this.grdOptions.Children.Add(this._userOptions);
 
             this.grdOptions.Visibility = Visibility.Visible;
         }
@@ -161,7 +162,7 @@ namespace Paratoner {
         {
             this.grdInvoice.Visibility = Visibility.Hidden;
             this.grdOptions.Children.Clear();
-            this.grdOptions.Children.Add(_groupOperations);
+            this.grdOptions.Children.Add(this._groupOperations);
             this.grdOptions.Visibility = Visibility.Visible;
         }
 
@@ -169,7 +170,7 @@ namespace Paratoner {
         {
             this.grdInvoice.Visibility = Visibility.Hidden;
             this.grdOptions.Children.Clear();
-            this.grdOptions.Children.Add(_adminOperations);
+            this.grdOptions.Children.Add(this._adminOperations);
             this.grdOptions.Visibility = Visibility.Visible;
         }
 
@@ -222,13 +223,13 @@ namespace Paratoner {
             if (this._productList == null) {
                 this._productList = new List<Product>();
             }
-            var productName = txtProduct.Text.Trim();
+            var productName = this.txtProduct.Text.Trim();
             this._productList.Add(
                 new Product {
-                                ProductId = _productList.Count + 1,
+                                ProductId = this._productList.Count + 1,
                                 Name = productName
                             });
-            this.txtProduct.Text = String.Empty;
+            this.txtProduct.Text = string.Empty;
             this.lbxProductList.ItemsSource = null;
             this.lbxProductList.ItemsSource = this._productList;
         }
@@ -236,8 +237,8 @@ namespace Paratoner {
         private void ClearInvoiceScreen() {
             this.lbxProductList.ItemsSource = null;
             this.lbxProductList.Items.Clear();
-            this.txtProduct.Text = String.Empty;
-            this.txtPrice.Text = String.Empty;
+            this.txtProduct.Text = string.Empty;
+            this.txtPrice.Text = string.Empty;
             this._productList.Clear();
         }
 

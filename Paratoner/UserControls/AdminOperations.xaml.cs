@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 using DatabaseClasses;
 
+using FastQueries.Delete;
 using FastQueries.Select;
 using FastQueries.Update;
 
@@ -32,6 +33,10 @@ namespace Paratoner.UserControls {
         }
 
         private void cbxGroupList_OnLoaded(object sender, RoutedEventArgs e) {
+            UpdateCombobox();
+        }
+
+        private void UpdateCombobox() {
             this._groupList = SelectGroupsOfMemberById(this._userId);
             this._groupList.Insert(
                 0,
@@ -39,7 +44,6 @@ namespace Paratoner.UserControls {
                                        Name = "Select a group...",
                                        ForegroundBrush = Brushes.Black
                                    });
-
             this.cbxGroupList.ItemsSource = this._groupList;
             this.cbxGroupList.SelectedIndex = 0;
         }
@@ -56,20 +60,16 @@ namespace Paratoner.UserControls {
 
         private void UpdateGrid() {
             if (this.cbxGroupList.SelectedIndex > 0) {
-                GetGroupMembers ggm = new GetGroupMembers(this._dbo);
-                int groupIndex = this.cbxGroupList.SelectedIndex;
-                int groupId = this._groupList[groupIndex].GroupId;
-                switch (this.tgShowAll.IsChecked) {
-                    case true: {
-                        var dt = ggm.SelectByGroupId(groupId);
-                        this.dg.ItemsSource = dt.DefaultView;
-                    }
-                        break;
-                    default: {
-                        var dt = ggm.SelectOnlyApporedByGroupId(groupId);
-                        this.dg.ItemsSource = dt.DefaultView;
-                    }
-                        break;
+                var ggm = new GetGroupMembers(this._dbo);
+                var groupIndex = this.cbxGroupList.SelectedIndex;
+                var groupId = this._groupList[groupIndex].GroupId;
+                if (this.tgShowAll.IsChecked == true) {
+                    var dt = ggm.SelectByGroupId(groupId);
+                    this.dg.ItemsSource = dt.DefaultView;
+                }
+                else {
+                    var dt = ggm.SelectOnlyApporedByGroupId(groupId);
+                    this.dg.ItemsSource = dt.DefaultView;
                 }
             }
             else {
@@ -84,20 +84,33 @@ namespace Paratoner.UserControls {
                 if (dt.Rows.Count > 0) {
                     var groupmemberId = Convert.ToInt32(dt.Rows[index][1].ToString());
                     var autg = new AcceptUserToGroup(this._dbo);
-                    MessageBox("ACCEPT USERT", autg.UpdateWithGroupmemberId(groupmemberId) ? "SUCCESS" : "ERROR!");
+                    MessageBox("ACCEPT USER", autg.UpdateWithGroupmemberId(groupmemberId) ? "SUCCESS" : "ERROR!");
                     UpdateGrid();
                 }
             }
-
         }
 
-        private void btnDeleteMember_Click(object sender, RoutedEventArgs e) { }
+        private void btnDeleteMember_Click(object sender, RoutedEventArgs e) {
+            var index = dg.SelectedIndex;
+            if (index != -1) {
+                var dt = ( (DataView) dg.ItemsSource ).ToTable();
+                if (dt.Rows.Count > 0) {
+                    var groupmemberId = Convert.ToInt32(dt.Rows[index][1].ToString());
+                    var dufgm = new DeleteUserFromGroupmember(this._dbo);
+                    MessageBox("DELETE USER", dufgm.DeleteViaGroupmemberId(groupmemberId) ? "SUCCESS" : "ERROR!");
+                    UpdateCombobox();
+                }
+            }
+        }
 
-
-        private async void MessageBox(string title, string message)
-        {
+        private async void MessageBox(string title, string message) {
             var window = this.TryFindParent<MetroWindow>();
             await window.ShowMessageAsync(title, message);
+        }
+
+        private void ToggleSwitch_OnChecked(object sender, RoutedEventArgs e)
+        {
+            UpdateGrid();
         }
     }
 

@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Group.cs" />
     <Compile Include="GroupsOfMember.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="Product.cs" />

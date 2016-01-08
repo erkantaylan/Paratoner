@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text;
 
 using FastQueries;
+using FastQueries.Insert;
 using FastQueries.Select;
 using FastQueries.Update;
 
@@ -36,9 +37,21 @@ namespace Cmd.Tester {
             //var sp = new SpLoanList(new DbOperations());
             //Console.WriteLine(PrintTable(sp.SelectByGroupId(1)));
 
-            GetGroupMembers ggm = new GetGroupMembers(dbo);
-            var dt = ggm.SelectByGroupId(1);
-            Console.WriteLine(PrintTable(dt));
+            //GetGroupMembers ggm = new GetGroupMembers(dbo);
+            //var dt = ggm.SelectByGroupId(1);
+            //Console.WriteLine(PrintTable(dt));
+
+            //JoinGroup jg = new JoinGroup(dbo);
+            //Console.WriteLine(jg.Join(4, 4));
+
+            HomeExist he = new HomeExist(dbo);
+            Console.WriteLine(he.CheckName("bizimev"));
+
+
+
+
+
+
 
             Console.Write("FIN...");
             Console.ReadKey();

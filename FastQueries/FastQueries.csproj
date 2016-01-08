@@ -43,13 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delete\DeleteUserFromGroupmember.cs" />
+    <Compile Include="Insert\AddNewGroup.cs" />
     <Compile Include="Insert\AddNewInvoice.cs" />
     <Compile Include="Insert\AddNewProduct.cs" />
+    <Compile Include="Insert\JoinGroup.cs" />
     <Compile Include="Select\AccountController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Select\CheckPassword.cs" />
     <Compile Include="Select\GetGroupMembers.cs" />
+    <Compile Include="Select\GroupsWithoutUser.cs" />
     <Compile Include="Select\InvoiceSelect.cs" />
+    <Compile Include="Select\HomeExist.cs" />
     <Compile Include="Select\Products.cs" />
     <Compile Include="Select\SelectUserGroupList.cs" />
     <Compile Include="Select\SpLoanList.cs" />
@@ -70,9 +75,7 @@
       <Name>PsqlConnector</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Delete\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

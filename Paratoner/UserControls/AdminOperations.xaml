@@ -21,7 +21,7 @@
             <DataGrid x:Name="dg" Height="200" Margin="5"  IsReadOnly="True" CanUserAddRows="False" CanUserSortColumns="False" SelectionMode="Single"
                               CanUserDeleteRows="False" CanUserResizeRows="False" MaxHeight="500" CanUserReorderColumns="False"/>
             <GroupBox Header="SHOW ALL">
-                <Controls:ToggleSwitch x:Name="tgShowAll" IsChecked="True" Margin="5" OnLabel="ON" OffLabel="OFF" />
+                <Controls:ToggleSwitch x:Name="tgShowAll" IsChecked="True" Margin="5" OnLabel="ON" OffLabel="OFF" Checked="ToggleSwitch_OnChecked" Unchecked="ToggleSwitch_OnChecked"/>
             </GroupBox>
             <Button Controls:ButtonHelper.CornerRadius="0" Background="Green" Margin="5" FontSize="20" x:Name="btnAccepMember" Click="btnAccepMember_Click">
                 <TextBlock>
